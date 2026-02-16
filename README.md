@@ -1,6 +1,5 @@
 # BuckPal N-Tier Demo
-
-This repository implements a small web app using a 3-tier architecture (controller, service, repository) with a focused domain model and DTO layer.
+This repository implements a three-tier version of the [Buckpal](https://github.com/thombergs/buckpal) demo application, which was originally designed to demonstrate the principles of hexagonal architecture. The project provides a lightweight web application organized into distinct controller, service, and repository layers, featuring a well-defined domain model and a dedicated DTO layer.
 
 ## Technology Stack
 
@@ -50,6 +49,7 @@ Key packages:
 	./gradlew bootRun
 	```
 	The service starts on `http://localhost:8080`.
+	The H2 console is available at `http://localhost:8080/h2-console`.
 
 4. Generate Javadoc:
 	```bash
