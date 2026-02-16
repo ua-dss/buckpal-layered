@@ -1,0 +1,6 @@
+io.reflectoring.buckpal
+io.reflectoring.buckpal.common.validation
+io.reflectoring.buckpal.dto
+io.reflectoring.buckpal.entity
+io.reflectoring.buckpal.repository
+io.reflectoring.buckpal.service

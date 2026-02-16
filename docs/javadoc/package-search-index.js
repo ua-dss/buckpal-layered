@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.reflectoring.buckpal"},{"l":"io.reflectoring.buckpal.common.validation"},{"l":"io.reflectoring.buckpal.dto"},{"l":"io.reflectoring.buckpal.entity"},{"l":"io.reflectoring.buckpal.repository"},{"l":"io.reflectoring.buckpal.service"}];updateSearchResults();
