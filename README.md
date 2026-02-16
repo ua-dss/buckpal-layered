@@ -1,85 +1,67 @@
-# Get Your Hands Dirty on Clean Architecture
+# BuckPal N-Tier Demo
 
-This repository implements a small web app in the Hexagonal Architecture style, as discussed in the book "Get Your Hands Dirty on Clean Architecture".
+This repository implements a small web app using a 3-tier architecture (controller, service, repository) with a focused domain model and DTO layer.
 
-The code has been updated to the 2nd edition of the book.
+## Technology Stack
 
-## Get the print book
+- Java 17
+- Spring Boot 3.1
+- Gradle
+- Spring Data JPA / Hibernate
+- H2 (in-memory database for tests and local runs)
+- JUnit 5, Mockito, AssertJ, ArchUnit
 
-[![Get Your Hands Dirty on Clean Architecture cover](img/cover-packt-450.png)](https://www.amazon.com/Your-Hands-Dirty-Clean-Architecture/dp/180512837X?keywords=get+your+hands+dirty+on+clean+architecture&amp;qid=1689324075&amp;sprefix=Get+Your+Hands+Dirty+on+Clean+,aps,424&amp;sr=8-2&_encoding=UTF8&tag=reflectorin0c-20&linkCode=ur2&linkId=c04a12e6dd6d399747b0cdce328650a5&camp=1789&creative=9325)
+## Architecture Overview
 
-## Get the e-book
+The project follows a classic 3-tier structure:
 
-This is the self-published version, which is only available electronically.
+- **Controller**: REST endpoints and request/response DTOs
+- **Service**: Business logic orchestration
+- **Repository**: Persistence and data mapping
+- **Entity/DTO**: Domain objects and API contracts
 
-[![Get Your Hands Dirty on Clean Architecture cover](img/cover-430.png)](https://thombergs.gumroad.com/l/gyhdoca)
+Key packages:
 
-## Companion Articles
-
-* [Hexagonal Architecture with Java and Spring](https://reflectoring.io/spring-hexagonal/)
-* [Building a Multi-Module Spring Boot Application with Gradle](https://reflectoring.io/spring-boot-gradle-multi-module/)
+- `io.reflectoring.buckpal.controller`
+- `io.reflectoring.buckpal.service`
+- `io.reflectoring.buckpal.repository`
+- `io.reflectoring.buckpal.entity`
+- `io.reflectoring.buckpal.dto`
 
 ## Prerequisites
 
-* JDK 17
-* this project uses Lombok, so enable annotation processing in your IDE
+- JDK 17
+- Lombok annotation processing enabled in your IDE
 
-## About the book
-### All About Hexagonal Architecture
+## Build and Run
 
-* Learn the concepts behind "Clean Architecture" and "Hexagonal Architecture".
-* Explore a hands-on approach of implementing a Hexagonal architecture with example code [on GitHub](https://github.com/thombergs/buckpal).
-* Develop your domain code independent of database or web concerns.
+1. Build:
+	```bash
+	./gradlew build
+	```
 
-![Hexagonal Architecture](img/hexagonal-architecture.png)
+2. Run tests:
+	```bash
+	./gradlew test
+	```
 
-### Get a Grip on Your Layers
+3. Run the application:
+	```bash
+	./gradlew bootRun
+	```
+	The service starts on `http://localhost:8080`.
 
-* Learn about potential problems of the common layered architecture style.
-* Free your domain layer of oppressive dependencies using dependency inversion.
-* Structure your code in an architecturally expressive way.
-* Use different methods to enforce architectural boundaries.
-* Learn the consequences of shortcuts and when to accept them.
-* ... and [more](#table-of-contents).
+4. Generate Javadoc:
+	```bash
+	./gradlew javadoc
+	```
+	Documentation is generated in the project root directory.
 
-![Dependencies](img/dependencies.png)
+## API Endpoints
 
-### What Readers Say
-
-> Tom Hombergs has done a terrific job in explaining clean architecture - from concepts to code. Really wish more technical books would be as clear as that one!
-
-Gernot Starke - Fellow at [INNOQ](https://www.innoq.com/en/staff/gernot-starke/), Founder of [arc42](https://arc42.org/), Author of Software Architecture Books, Coach, and Consultant
-
-> Love your book. One of the most practical books on hexagonal architecture I have seen/read so far.
-
-Marten Deinum - Spring Framework Contributor and Author of ["Spring 5 Recipes"](https://www.amazon.com/Spring-5-Recipes-Problem-Solution-Approach/dp/1484227891&tag=reflectorin0c-20) and ["Spring Boot 2 Recipes"](https://www.amazon.com/Spring-Boot-Recipes-Problem-Solution-Approach/dp/1484239628&tag=reflectorin0c-20)
-
-> A book taken right out of the machine room of software development. Tom talks straight from his experience and guides you through the day-to-day trade-offs necessary to deliver clean architecture.
-
-Sebastian Kempken - Software Architect at Adcubum
-
-> Thank you for the great book, it helped me gain significant insight into how one would go about implementing hexagonal and DDD in a modern Spring project.
-
-Spyros Vallianos - Java Developer at Konnekt-able
-
-> After reading it I had one of these 'aha' moments when things finally click in your brain.
-
-Manos Tzagkarakis - Java Developer at Datawise
-
-### Table of Contents
-
-1. Maintainability
-2. What's Wrong with Layers?
-3. Inverting Dependencies
-4. Organizing Code
-5. Implementing a Use Case
-6. Implementing a Web Adapter
-7. Implementing a Persistence Adapter
-8. Testing Architecture Elements
-9. Mapping Between Boundaries
-10. Assembling the Application
-11. Taking Shortcuts Consciously
-12. Enforcing Architecture Boundaries
-13. Managing Multiple Bounded Contexts
-14. A Component-Based Approach to Software Architecture
-15. Deciding on an Architecture Style
+- `GET /accounts/balance?accountId={id}`
+- `POST /accounts/send`
+- `POST /accounts/deposit`
+- `POST /accounts/withdraw`
+- `POST /accounts/create`
+- `GET /accounts`
