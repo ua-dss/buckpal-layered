@@ -1,4 +1,4 @@
-# BuckPal N-Tier Demo
+# N-Tier Architecture Demo
 This repository implements a three-tier version of the [Buckpal](https://github.com/thombergs/buckpal) demo application, which was originally designed to demonstrate the principles of hexagonal architecture. The project provides a lightweight web application organized into distinct controller, service, and repository layers, featuring a well-defined domain model and a dedicated DTO layer.
 
 ## Technology Stack
