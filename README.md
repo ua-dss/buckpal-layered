@@ -1,5 +1,5 @@
-# N-Tier Architecture Demo
-This repository implements a three-tier version of the [Buckpal](https://github.com/thombergs/buckpal) demo application, which was originally designed to demonstrate the principles of hexagonal architecture. The project provides a lightweight web application organized into distinct controller, service, and repository layers, featuring a well-defined domain model and a dedicated DTO layer.
+# Layered Architecture Demo
+This repository implements a layered version of the [Buckpal](https://github.com/thombergs/buckpal) demo application, which was originally designed to demonstrate the principles of hexagonal architecture. The project provides a lightweight web application organized into distinct controller, service, and repository layers, featuring a well-defined domain model and a dedicated DTO layer.
 
 ## Technology Stack
 
@@ -12,20 +12,12 @@ This repository implements a three-tier version of the [Buckpal](https://github.
 
 ## Architecture Overview
 
-The project follows a classic 3-tier structure:
+The project follows a classic 3-layer structure:
 
-- **Controller**: REST endpoints and request/response DTOs
-- **Service**: Business logic orchestration
-- **Repository**: Persistence and data mapping
-- **Entity/DTO**: Domain objects and API contracts
+- **presentation**: see controller package
+- **business**: see service and entity packages
+- **data**: see repository package
 
-Key packages:
-
-- `io.reflectoring.buckpal.controller`
-- `io.reflectoring.buckpal.service`
-- `io.reflectoring.buckpal.repository`
-- `io.reflectoring.buckpal.entity`
-- `io.reflectoring.buckpal.dto`
 
 ## Prerequisites
 
