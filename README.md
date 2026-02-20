@@ -41,7 +41,8 @@ The project follows a classic 3-layer structure:
 	./gradlew bootRun
 	```
 	The service starts on `http://localhost:8080`.
-	The H2 console is available at `http://localhost:8080/h2-console`.
+
+	The H2 console is available at `http://localhost:8080/h2-console`. Set `JDBC_URL = jdbc:h2:mem:db` and `Driver class = org.h2.Driver`
 
 4. Generate Javadoc:
 	```bash
