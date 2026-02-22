@@ -1,6 +1,11 @@
 io.reflectoring.buckpal
+io.reflectoring.buckpal.common.synchronization
 io.reflectoring.buckpal.common.validation
-io.reflectoring.buckpal.dto
-io.reflectoring.buckpal.entity
-io.reflectoring.buckpal.repository
-io.reflectoring.buckpal.service
+io.reflectoring.buckpal.domain.dto
+io.reflectoring.buckpal.domain.model
+io.reflectoring.buckpal.domain.repository
+io.reflectoring.buckpal.domain.service
+io.reflectoring.buckpal.infrastructure.entity
+io.reflectoring.buckpal.infrastructure.repository
+io.reflectoring.buckpal.presentation.controller
+io.reflectoring.buckpal.presentation.dto

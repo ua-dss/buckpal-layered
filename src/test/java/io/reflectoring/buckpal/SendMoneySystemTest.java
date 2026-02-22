@@ -1,9 +1,10 @@
 package io.reflectoring.buckpal;
 
-import io.reflectoring.buckpal.repository.AccountRepository;
-import io.reflectoring.buckpal.entity.Account;
-import io.reflectoring.buckpal.entity.Account.AccountId;
-import io.reflectoring.buckpal.entity.Money;
+import io.reflectoring.buckpal.domain.model.Account;
+import io.reflectoring.buckpal.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.domain.repository.AccountRepository;
+import io.reflectoring.buckpal.domain.model.Money;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

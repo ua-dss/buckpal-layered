@@ -1,10 +1,14 @@
 package io.reflectoring.buckpal.repository;
 
-import io.reflectoring.buckpal.entity.Account;
-import io.reflectoring.buckpal.entity.Account.AccountId;
-import io.reflectoring.buckpal.entity.ActivityWindow;
-import io.reflectoring.buckpal.entity.Money;
-import io.reflectoring.buckpal.entity.ActivityJpaEntity;
+import io.reflectoring.buckpal.domain.model.Account;
+import io.reflectoring.buckpal.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.infrastructure.entity.ActivityJpaEntity;
+import io.reflectoring.buckpal.domain.model.Money;
+import io.reflectoring.buckpal.infrastructure.repository.AccountMapper;
+import io.reflectoring.buckpal.infrastructure.repository.AccountRepositoryImpl;
+import io.reflectoring.buckpal.infrastructure.repository.ActivityJpaRepository;
+import io.reflectoring.buckpal.domain.model.ActivityWindow;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

@@ -10,35 +10,45 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 class DependencyRuleTests {
 
 	@Test
-	void validateThreeTierArchitecture() {
+	void validateLayeredArchitecture() {
 		JavaClasses classes = new ClassFileImporter()
+				.withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
 				.importPackages("io.reflectoring.buckpal..");
 
+		// Presentation layer should NOT depend on Infrastructure layer
 		noClasses()
 				.that()
-				.resideInAPackage("io.reflectoring.buckpal.controller..")
+				.resideInAPackage("io.reflectoring.buckpal.presentation..")
 				.should()
 				.dependOnClassesThat()
-				.resideInAnyPackage("io.reflectoring.buckpal.repository..")
+				.resideInAnyPackage("io.reflectoring.buckpal.infrastructure..")
 				.check(classes);
 
+		// Domain layer should NOT depend on Presentation layer
 		noClasses()
 				.that()
-				.resideInAPackage("io.reflectoring.buckpal.service..")
+				.resideInAPackage("io.reflectoring.buckpal.domain..")
 				.should()
 				.dependOnClassesThat()
-				.resideInAnyPackage("io.reflectoring.buckpal.controller..")
+				.resideInAnyPackage("io.reflectoring.buckpal.presentation..")
 				.check(classes);
 
+		// Domain layer should NOT depend on Infrastructure layer
 		noClasses()
 				.that()
-				.resideInAPackage("io.reflectoring.buckpal.repository..")
+				.resideInAPackage("io.reflectoring.buckpal.domain..")
 				.should()
 				.dependOnClassesThat()
-				.resideInAnyPackage(
-						"io.reflectoring.buckpal.controller..",
-						"io.reflectoring.buckpal.service..",
-						"io.reflectoring.buckpal.dto..")
+				.resideInAnyPackage("io.reflectoring.buckpal.infrastructure..")
+				.check(classes);
+
+		// Infrastructure layer should NOT depend on Presentation layer
+		noClasses()
+				.that()
+				.resideInAPackage("io.reflectoring.buckpal.infrastructure..")
+				.should()
+				.dependOnClassesThat()
+				.resideInAnyPackage("io.reflectoring.buckpal.presentation..")
 				.check(classes);
 	}
 
@@ -46,11 +56,11 @@ class DependencyRuleTests {
 	void domainModelDoesNotDependOnOutside() {
 		noClasses()
 				.that()
-				.resideInAPackage("io.reflectoring.buckpal.entity..")
+				.resideInAPackage("io.reflectoring.buckpal.domain.model..")
 				.should()
 				.dependOnClassesThat()
 				.resideOutsideOfPackages(
-						"io.reflectoring.buckpal.entity..",
+						"io.reflectoring.buckpal.domain.model..",
 						"lombok..",
 						"java..",
 						"jakarta.."

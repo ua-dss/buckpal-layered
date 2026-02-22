@@ -1,7 +1,8 @@
 package io.reflectoring.buckpal.dto;
 
-import io.reflectoring.buckpal.entity.Account;
-import io.reflectoring.buckpal.entity.Money;
+import io.reflectoring.buckpal.domain.dto.AccountSendMoneyCommand;
+import io.reflectoring.buckpal.domain.model.Account;
+import io.reflectoring.buckpal.domain.model.Money;
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

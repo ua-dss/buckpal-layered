@@ -1,11 +1,12 @@
 package io.reflectoring.buckpal.controller;
 
-import io.reflectoring.buckpal.dto.AccountSendMoneyCommand;
-import io.reflectoring.buckpal.dto.GetAccountBalanceQuery;
-import io.reflectoring.buckpal.entity.Account.AccountId;
-import io.reflectoring.buckpal.entity.Money;
-import io.reflectoring.buckpal.service.AccountBalanceService;
-import io.reflectoring.buckpal.service.AccountSendMoneyService;
+import io.reflectoring.buckpal.domain.dto.AccountSendMoneyCommand;
+import io.reflectoring.buckpal.domain.dto.AccountBalanceQuery;
+import io.reflectoring.buckpal.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.domain.model.Money;
+import io.reflectoring.buckpal.presentation.controller.AccountSendMoneyController;
+import io.reflectoring.buckpal.domain.service.AccountBalanceService;
+import io.reflectoring.buckpal.domain.service.AccountSendMoneyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -31,7 +32,7 @@ class AccountSendMoneyControllerTest {
 	@Test
 	void testSendMoney() throws Exception {
 
-		given(accountBalanceService.getAccountBalance(any(GetAccountBalanceQuery.class)))
+		given(accountBalanceService.getAccountBalance(any(AccountBalanceQuery.class)))
 				.willReturn(Money.of(1000L));
 
 		mockMvc.perform(post("/accounts/send")

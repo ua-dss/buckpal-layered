@@ -2,7 +2,10 @@ package io.reflectoring.buckpal.entity;
 
 import java.time.LocalDateTime;
 
-import io.reflectoring.buckpal.entity.Account.AccountId;
+import io.reflectoring.buckpal.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.domain.model.ActivityWindow;
+import io.reflectoring.buckpal.domain.model.Money;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

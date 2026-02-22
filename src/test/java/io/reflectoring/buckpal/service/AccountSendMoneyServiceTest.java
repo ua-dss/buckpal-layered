@@ -1,11 +1,14 @@
 package io.reflectoring.buckpal.service;
 
-import io.reflectoring.buckpal.dto.AccountSendMoneyCommand;
-import io.reflectoring.buckpal.repository.AccountLock;
-import io.reflectoring.buckpal.repository.AccountRepository;
-import io.reflectoring.buckpal.entity.Account;
-import io.reflectoring.buckpal.entity.Account.AccountId;
-import io.reflectoring.buckpal.entity.Money;
+import io.reflectoring.buckpal.common.synchronization.AccountLock;
+import io.reflectoring.buckpal.domain.dto.AccountSendMoneyCommand;
+import io.reflectoring.buckpal.domain.model.Account;
+import io.reflectoring.buckpal.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.domain.repository.AccountRepository;
+import io.reflectoring.buckpal.domain.model.Money;
+import io.reflectoring.buckpal.domain.service.AccountSendMoneyService;
+import io.reflectoring.buckpal.domain.service.MoneyTransferProperties;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;

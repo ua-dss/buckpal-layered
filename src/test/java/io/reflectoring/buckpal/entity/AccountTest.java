@@ -1,6 +1,10 @@
 package io.reflectoring.buckpal.entity;
 
-import io.reflectoring.buckpal.entity.Account.AccountId;
+import io.reflectoring.buckpal.domain.model.Account;
+import io.reflectoring.buckpal.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.domain.model.ActivityWindow;
+import io.reflectoring.buckpal.domain.model.Money;
+
 import org.junit.jupiter.api.Test;
 
 import static io.reflectoring.buckpal.common.AccountTestData.*;
