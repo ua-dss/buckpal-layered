@@ -2,10 +2,10 @@ package buckpal.business.service;
 
 import buckpal.business.dto.AccountBalanceQuery;
 import buckpal.business.model.Money;
-import buckpal.infrastructure.repository.AccountJpaRepository;
-import buckpal.infrastructure.repository.ActivityJpaRepository;
+import buckpal.data.repository.AccountJpaRepository;
+import buckpal.data.repository.ActivityJpaRepository;
 import buckpal.business.repository.AccountMapper;
-import buckpal.infrastructure.entity.ActivityJpaEntity;
+import buckpal.data.entity.ActivityJpaEntity;
 import lombok.RequiredArgsConstructor;
 
 import jakarta.persistence.EntityNotFoundException;

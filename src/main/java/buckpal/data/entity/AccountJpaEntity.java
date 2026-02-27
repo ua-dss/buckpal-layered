@@ -1,4 +1,4 @@
-package buckpal.infrastructure.entity;
+package buckpal.data.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

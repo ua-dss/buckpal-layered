@@ -1,10 +1,10 @@
 package buckpal.business.service;
 
 import buckpal.business.model.Account;
-import buckpal.infrastructure.repository.AccountJpaRepository;
-import buckpal.infrastructure.repository.ActivityJpaRepository;
+import buckpal.data.repository.AccountJpaRepository;
+import buckpal.data.repository.ActivityJpaRepository;
 import buckpal.business.repository.AccountMapper;
-import buckpal.infrastructure.entity.ActivityJpaEntity;
+import buckpal.data.entity.ActivityJpaEntity;
 import lombok.RequiredArgsConstructor;
 
 import jakarta.transaction.Transactional;

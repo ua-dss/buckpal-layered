@@ -2,8 +2,8 @@ package buckpal;
 
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
-import buckpal.infrastructure.repository.AccountJpaRepository;
-import buckpal.infrastructure.repository.ActivityJpaRepository;
+import buckpal.data.repository.AccountJpaRepository;
+import buckpal.data.repository.ActivityJpaRepository;
 import buckpal.business.repository.AccountMapper;
 import buckpal.business.model.Money;
 

@@ -1,10 +1,10 @@
-package buckpal.infrastructure.repository;
+package buckpal.data.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import buckpal.infrastructure.entity.ActivityJpaEntity;
+import buckpal.data.entity.ActivityJpaEntity;
 
 import java.time.LocalDateTime;
 import java.util.List;

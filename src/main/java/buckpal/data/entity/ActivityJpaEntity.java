@@ -1,4 +1,4 @@
-package buckpal.infrastructure.entity;
+package buckpal.data.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

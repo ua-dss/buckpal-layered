@@ -15,16 +15,16 @@ class DependencyRuleTests {
 				.withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
 				.importPackages("buckpal..");
 
-		// Presentation layer should NOT depend on Infrastructure layer
+		// Presentation layer should NOT depend on Data layer
 		noClasses()
 				.that()
 				.resideInAPackage("buckpal.presentation..")
 				.should()
 				.dependOnClassesThat()
-				.resideInAnyPackage("buckpal.infrastructure..")
+				.resideInAnyPackage("buckpal.data..")
 				.check(classes);
 
-		// Domain layer should NOT depend on Presentation layer
+		// Business layer should NOT depend on Presentation layer
 		noClasses()
 				.that()
 				.resideInAPackage("buckpal.business..")
@@ -33,12 +33,10 @@ class DependencyRuleTests {
 				.resideInAnyPackage("buckpal.presentation..")
 				.check(classes);
 
-		// Domain layer should NOT depend on Infrastructure layer
-
-		// Infrastructure layer should NOT depend on Presentation layer
+		// Data layer should NOT depend on Presentation layer
 		noClasses()
 				.that()
-				.resideInAPackage("buckpal.infrastructure..")
+				.resideInAPackage("buckpal.data..")
 				.should()
 				.dependOnClassesThat()
 				.resideInAnyPackage("buckpal.presentation..")

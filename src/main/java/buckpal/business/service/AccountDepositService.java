@@ -4,10 +4,10 @@ import buckpal.business.dto.AccountDepositCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Activity;
-import buckpal.infrastructure.repository.AccountJpaRepository;
-import buckpal.infrastructure.repository.ActivityJpaRepository;
+import buckpal.data.repository.AccountJpaRepository;
+import buckpal.data.repository.ActivityJpaRepository;
 import buckpal.business.repository.AccountMapper;
-import buckpal.infrastructure.entity.ActivityJpaEntity;
+import buckpal.data.entity.ActivityJpaEntity;
 import lombok.RequiredArgsConstructor;
 
 import jakarta.persistence.EntityNotFoundException;

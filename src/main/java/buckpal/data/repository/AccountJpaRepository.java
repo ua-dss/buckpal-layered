@@ -1,8 +1,8 @@
-package buckpal.infrastructure.repository;
+package buckpal.data.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import buckpal.infrastructure.entity.AccountJpaEntity;
+import buckpal.data.entity.AccountJpaEntity;
 
 public interface AccountJpaRepository extends JpaRepository<AccountJpaEntity, Long> {
 }

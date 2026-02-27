@@ -5,9 +5,9 @@ import java.util.List;
 
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
-import buckpal.infrastructure.entity.AccountJpaEntity;
+import buckpal.data.entity.AccountJpaEntity;
 import buckpal.business.model.Activity;
-import buckpal.infrastructure.entity.ActivityJpaEntity;
+import buckpal.data.entity.ActivityJpaEntity;
 import buckpal.business.model.Money;
 import buckpal.business.model.Activity.ActivityId;
 import buckpal.business.model.ActivityWindow;

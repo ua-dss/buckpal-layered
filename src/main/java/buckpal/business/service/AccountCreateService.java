@@ -3,8 +3,8 @@ package buckpal.business.service;
 import buckpal.business.dto.AccountCreateCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
-import buckpal.infrastructure.repository.AccountJpaRepository;
-import buckpal.infrastructure.entity.AccountJpaEntity;
+import buckpal.data.repository.AccountJpaRepository;
+import buckpal.data.entity.AccountJpaEntity;
 import buckpal.business.model.ActivityWindow;
 import lombok.RequiredArgsConstructor;
 
