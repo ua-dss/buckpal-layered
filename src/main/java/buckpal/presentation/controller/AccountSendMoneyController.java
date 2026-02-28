@@ -34,11 +34,9 @@ public class AccountSendMoneyController {
 
 			boolean success = sendMoneyService.sendMoney(command);
 
-			AccountBalanceQuery sourceQuery =
-					new AccountBalanceQuery(new AccountId(sourceAccountId));
+			AccountBalanceQuery sourceQuery = new AccountBalanceQuery(new AccountId(sourceAccountId));
 
-			AccountBalanceQuery targetQuery =
-					new AccountBalanceQuery(new AccountId(targetAccountId));
+			AccountBalanceQuery targetQuery = new AccountBalanceQuery(new AccountId(targetAccountId));
 
 			Long sourceBalance = accountBalanceService.getAccountBalance(sourceQuery)
 					.getAmount()

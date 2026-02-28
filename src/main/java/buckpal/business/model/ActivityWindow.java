@@ -40,7 +40,8 @@ public class ActivityWindow {
 	}
 
 	/**
-	 * Calculates the balance by summing up the values of all activities within this window.
+	 * Calculates the balance by summing up the values of all activities within this
+	 * window.
 	 */
 	public Money calculateBalance(Account.AccountId accountId) {
 		Money depositBalance = activities.stream()

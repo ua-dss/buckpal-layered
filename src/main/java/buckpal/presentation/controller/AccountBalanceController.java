@@ -20,8 +20,7 @@ class AccountBalanceController {
 	BalanceResponse getAccountBalance(@RequestParam("accountId") Long accountId) {
 
 		try {
-			AccountBalanceQuery query =
-					new AccountBalanceQuery(new AccountId(accountId));
+			AccountBalanceQuery query = new AccountBalanceQuery(new AccountId(accountId));
 
 			Long balance = accountBalanceService.getAccountBalance(query)
 					.getAmount()

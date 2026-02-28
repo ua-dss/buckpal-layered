@@ -33,21 +33,17 @@ public class AccountSendMoneyService {
 		checkThreshold(command);
 
 		// Load source account using JpaRepository directly
-		var sourceAccountJpaEntity =
-				accountRepository.findById(command.sourceAccountId().getValue())
-						.orElseThrow(() -> new EntityNotFoundException(
-								"Account with ID " + command.sourceAccountId().getValue() + " not found"));
-		List<ActivityJpaEntity> sourceActivities =
-				activityRepository.findByOwner(command.sourceAccountId().getValue());
+		var sourceAccountJpaEntity = accountRepository.findById(command.sourceAccountId().getValue())
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Account with ID " + command.sourceAccountId().getValue() + " not found"));
+		List<ActivityJpaEntity> sourceActivities = activityRepository.findByOwner(command.sourceAccountId().getValue());
 		Account sourceAccount = accountMapper.mapToDomainEntity(sourceAccountJpaEntity, sourceActivities);
 
 		// Load target account using JpaRepository directly
-		var targetAccountJpaEntity =
-				accountRepository.findById(command.targetAccountId().getValue())
-						.orElseThrow(() -> new EntityNotFoundException(
-								"Account with ID " + command.targetAccountId().getValue() + " not found"));
-		List<ActivityJpaEntity> targetActivities =
-				activityRepository.findByOwner(command.targetAccountId().getValue());
+		var targetAccountJpaEntity = accountRepository.findById(command.targetAccountId().getValue())
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Account with ID " + command.targetAccountId().getValue() + " not found"));
+		List<ActivityJpaEntity> targetActivities = activityRepository.findByOwner(command.targetAccountId().getValue());
 		Account targetAccount = accountMapper.mapToDomainEntity(targetAccountJpaEntity, targetActivities);
 
 		AccountId sourceAccountId = sourceAccount.getId()
@@ -87,7 +83,8 @@ public class AccountSendMoneyService {
 
 	private void checkThreshold(AccountSendMoneyCommand command) {
 		if (command.money().isGreaterThan(moneyTransferProperties.getMaximumTransferThreshold())) {
-			throw new ThresholdExceededException(moneyTransferProperties.getMaximumTransferThreshold(), command.money());
+			throw new ThresholdExceededException(moneyTransferProperties.getMaximumTransferThreshold(),
+					command.money());
 		}
 	}
 

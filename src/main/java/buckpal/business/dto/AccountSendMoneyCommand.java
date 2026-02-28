@@ -11,8 +11,7 @@ import buckpal.common.validation.IPositiveMoney;
 public record AccountSendMoneyCommand(
 		@NotNull AccountId sourceAccountId,
 		@NotNull AccountId targetAccountId,
-		@NotNull @IPositiveMoney Money money
-) {
+		@NotNull @IPositiveMoney Money money) {
 
 	public AccountSendMoneyCommand(
 			AccountId sourceAccountId,

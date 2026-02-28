@@ -6,8 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import static buckpal.common.validation.Validation.validate;
 
 public record AccountBalanceQuery(
-		@NotNull AccountId accountId
-) {
+		@NotNull AccountId accountId) {
 
 	public AccountBalanceQuery(AccountId accountId) {
 		this.accountId = accountId;

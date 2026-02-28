@@ -25,18 +25,16 @@ public class AccountDepositService {
 
 	public boolean deposit(AccountDepositCommand command) {
 		// Load account using JpaRepository directly
-		var accountJpaEntity =
-				accountRepository.findById(command.accountId().getValue())
-						.orElseThrow(() -> new EntityNotFoundException(
-								"Account with ID " + command.accountId().getValue() + " not found"));
-		List<ActivityJpaEntity> activities =
-				activityRepository.findByOwner(command.accountId().getValue());
+		var accountJpaEntity = accountRepository.findById(command.accountId().getValue())
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Account with ID " + command.accountId().getValue() + " not found"));
+		List<ActivityJpaEntity> activities = activityRepository.findByOwner(command.accountId().getValue());
 		Account account = accountMapper.mapToDomainEntity(accountJpaEntity, activities);
 
 		// Use a system account as the source for external deposits
 		AccountId externalSourceAccount = new AccountId(0L);
 		boolean success = account.deposit(command.money(), externalSourceAccount);
-		
+
 		// Save activities using JpaRepository directly
 		for (Activity activity : account.getActivityWindow().getActivities()) {
 			if (activity.getId() == null) {

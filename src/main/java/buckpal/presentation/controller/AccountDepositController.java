@@ -32,8 +32,7 @@ class AccountDepositController {
 
 			boolean success = accountDepositService.deposit(command);
 
-			AccountBalanceQuery query =
-					new AccountBalanceQuery(new AccountId(accountId));
+			AccountBalanceQuery query = new AccountBalanceQuery(new AccountId(accountId));
 
 			Long balance = accountBalanceService.getAccountBalance(query)
 					.getAmount()

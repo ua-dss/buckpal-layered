@@ -23,12 +23,10 @@ public class AccountBalanceService {
 
 	public Money getAccountBalance(AccountBalanceQuery query) {
 		// Load account using JpaRepository directly
-		var accountJpaEntity =
-				accountRepository.findById(query.accountId().getValue())
-						.orElseThrow(() -> new EntityNotFoundException(
-								"Account with ID " + query.accountId().getValue() + " not found"));
-		List<ActivityJpaEntity> activities =
-				activityRepository.findByOwner(query.accountId().getValue());
+		var accountJpaEntity = accountRepository.findById(query.accountId().getValue())
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Account with ID " + query.accountId().getValue() + " not found"));
+		List<ActivityJpaEntity> activities = activityRepository.findByOwner(query.accountId().getValue());
 		return accountMapper.mapToDomainEntity(accountJpaEntity, activities)
 				.calculateBalance();
 	}

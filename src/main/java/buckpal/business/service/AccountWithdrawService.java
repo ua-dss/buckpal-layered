@@ -25,18 +25,16 @@ public class AccountWithdrawService {
 
 	public boolean withdraw(AccountWithdrawCommand command) {
 		// Load account using JpaRepository directly
-		var accountJpaEntity =
-				accountRepository.findById(command.accountId().getValue())
-						.orElseThrow(() -> new EntityNotFoundException(
-								"Account with ID " + command.accountId().getValue() + " not found"));
-		List<ActivityJpaEntity> activities =
-				activityRepository.findByOwner(command.accountId().getValue());
+		var accountJpaEntity = accountRepository.findById(command.accountId().getValue())
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Account with ID " + command.accountId().getValue() + " not found"));
+		List<ActivityJpaEntity> activities = activityRepository.findByOwner(command.accountId().getValue());
 		Account account = accountMapper.mapToDomainEntity(accountJpaEntity, activities);
 
 		// Use a system account as the target for external withdrawals
 		AccountId externalTargetAccount = new AccountId(0L);
 		boolean success = account.withdraw(command.money(), externalTargetAccount);
-		
+
 		// Save activities using JpaRepository directly
 		for (Activity activity : account.getActivityWindow().getActivities()) {
 			if (activity.getId() == null) {

@@ -25,9 +25,8 @@ public class AccountListAllService {
 	public List<Account> listAccounts() {
 		return accountRepository.findAll().stream()
 				.map(accountJpaEntity -> {
-					List<ActivityJpaEntity> activities =
-							activityRepository.findByOwner(
-									accountJpaEntity.getId());
+					List<ActivityJpaEntity> activities = activityRepository.findByOwner(
+							accountJpaEntity.getId());
 
 					return accountMapper.mapToDomainEntity(
 							accountJpaEntity,

@@ -9,8 +9,10 @@ import lombok.Getter;
 import lombok.Value;
 
 /**
- * An account that holds a certain amount of money. An {@link Account} object only
- * contains a window of the latest account activities. The total balance of the account is
+ * An account that holds a certain amount of money. An {@link Account} object
+ * only
+ * contains a window of the latest account activities. The total balance of the
+ * account is
  * the sum of a baseline balance that was valid before the first activity in the
  * window and the sum of the activity values.
  */
@@ -23,7 +25,8 @@ public class Account {
 	private final AccountId id;
 
 	/**
-	 * The baseline balance of the account. This was the balance of the account before the first
+	 * The baseline balance of the account. This was the balance of the account
+	 * before the first
 	 * activity in the activityWindow.
 	 */
 	@Getter
@@ -36,22 +39,24 @@ public class Account {
 	private final ActivityWindow activityWindow;
 
 	/**
-	 * Creates an {@link Account} entity without an ID. Use to create a new entity that is not yet
+	 * Creates an {@link Account} entity without an ID. Use to create a new entity
+	 * that is not yet
 	 * persisted.
 	 */
 	public static Account withoutId(
-					Money baselineBalance,
-					ActivityWindow activityWindow) {
+			Money baselineBalance,
+			ActivityWindow activityWindow) {
 		return new Account(null, baselineBalance, activityWindow);
 	}
 
 	/**
-	 * Creates an {@link Account} entity with an ID. Use to reconstitute a persisted entity.
+	 * Creates an {@link Account} entity with an ID. Use to reconstitute a persisted
+	 * entity.
 	 */
 	public static Account withId(
-					AccountId accountId,
-					Money baselineBalance,
-					ActivityWindow activityWindow) {
+			AccountId accountId,
+			Money baselineBalance,
+			ActivityWindow activityWindow) {
 		return new Account(accountId, baselineBalance, activityWindow);
 	}
 
@@ -60,7 +65,8 @@ public class Account {
 	}
 
 	/**
-	 * Calculates the total balance of the account by adding the activity values to the baseline balance.
+	 * Calculates the total balance of the account by adding the activity values to
+	 * the baseline balance.
 	 */
 	public Money calculateBalance() {
 		return Money.add(
@@ -75,6 +81,7 @@ public class Account {
 	/**
 	 * Tries to withdraw a certain amount of money from this account.
 	 * If successful, creates a new activity with a negative value.
+	 * 
 	 * @return true if the withdrawal was successful, false if not.
 	 */
 	public boolean withdraw(Money money, AccountId targetAccountId) {
@@ -103,6 +110,7 @@ public class Account {
 	/**
 	 * Tries to deposit a certain amount of money to this account.
 	 * If sucessful, creates a new activity with a positive value.
+	 * 
 	 * @return true if the deposit was successful, false if not.
 	 */
 	public boolean deposit(Money money, AccountId sourceAccountId) {
