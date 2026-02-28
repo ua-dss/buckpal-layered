@@ -1,7 +1,7 @@
 package buckpal.controller;
 
-import buckpal.business.dto.AccountSendMoneyCommand;
-import buckpal.business.dto.AccountBalanceQuery;
+import buckpal.business.dto.SendMoneyCommand;
+import buckpal.business.dto.BalanceQuery;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Money;
 import buckpal.presentation.controller.AccountSendMoneyController;
@@ -32,7 +32,7 @@ class AccountSendMoneyControllerTest {
 	@Test
 	void testSendMoney() throws Exception {
 
-		given(accountBalanceService.getAccountBalance(any(AccountBalanceQuery.class)))
+		given(accountBalanceService.getAccountBalance(any(BalanceQuery.class)))
 				.willReturn(Money.of(1000L));
 
 		mockMvc.perform(post("/accounts/send")
@@ -43,7 +43,7 @@ class AccountSendMoneyControllerTest {
 				.andExpect(status().isOk());
 
 		then(sendMoneyService).should()
-				.sendMoney(eq(new AccountSendMoneyCommand(
+				.sendMoney(eq(new SendMoneyCommand(
 						new AccountId(41L),
 						new AccountId(42L),
 						Money.of(500L))));

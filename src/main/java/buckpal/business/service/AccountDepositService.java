@@ -1,6 +1,6 @@
 package buckpal.business.service;
 
-import buckpal.business.dto.AccountDepositCommand;
+import buckpal.business.dto.DepositCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Activity;
@@ -23,7 +23,7 @@ public class AccountDepositService {
 	private final IActivityJpaRepository activityRepository;
 	private final AccountMapper accountMapper;
 
-	public boolean deposit(AccountDepositCommand command) {
+	public boolean deposit(DepositCommand command) {
 		// Load account using JpaRepository directly
 		var accountJpaEntity = accountRepository.findById(command.accountId().getValue())
 				.orElseThrow(() -> new EntityNotFoundException(

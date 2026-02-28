@@ -1,6 +1,6 @@
 package buckpal.business.service;
 
-import buckpal.business.dto.AccountCreateCommand;
+import buckpal.business.dto.CreateCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
 import buckpal.data.repository.IAccountJpaRepository;
@@ -18,7 +18,7 @@ public class AccountCreateService {
 
 	private final IAccountJpaRepository accountRepository;
 
-	public AccountId createAccount(AccountCreateCommand command) {
+	public AccountId createAccount(CreateCommand command) {
 		Account newAccount = Account.withoutId(
 				command.initialBalance(),
 				new ActivityWindow());

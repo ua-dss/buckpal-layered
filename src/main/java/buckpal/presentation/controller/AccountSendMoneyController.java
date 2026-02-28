@@ -1,7 +1,7 @@
 package buckpal.presentation.controller;
 
-import buckpal.business.dto.AccountSendMoneyCommand;
-import buckpal.business.dto.AccountBalanceQuery;
+import buckpal.business.dto.SendMoneyCommand;
+import buckpal.business.dto.BalanceQuery;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Money;
 import buckpal.presentation.dto.AccountInfo;
@@ -27,16 +27,16 @@ public class AccountSendMoneyController {
 			@RequestParam("amount") Long amount) {
 
 		try {
-			AccountSendMoneyCommand command = new AccountSendMoneyCommand(
+			SendMoneyCommand command = new SendMoneyCommand(
 					new AccountId(sourceAccountId),
 					new AccountId(targetAccountId),
 					Money.of(amount));
 
 			boolean success = sendMoneyService.sendMoney(command);
 
-			AccountBalanceQuery sourceQuery = new AccountBalanceQuery(new AccountId(sourceAccountId));
+			BalanceQuery sourceQuery = new BalanceQuery(new AccountId(sourceAccountId));
 
-			AccountBalanceQuery targetQuery = new AccountBalanceQuery(new AccountId(targetAccountId));
+			BalanceQuery targetQuery = new BalanceQuery(new AccountId(targetAccountId));
 
 			Long sourceBalance = accountBalanceService.getAccountBalance(sourceQuery)
 					.getAmount()

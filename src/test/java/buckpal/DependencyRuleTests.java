@@ -54,8 +54,7 @@ class DependencyRuleTests {
 						"buckpal.business.model..",
 						"lombok..",
 						"java..",
-						"jakarta.."
-				)
+						"jakarta..")
 				.check(new ClassFileImporter()
 						.withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
 						.importPackages("buckpal.."));

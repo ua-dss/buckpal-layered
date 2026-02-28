@@ -1,6 +1,6 @@
 package buckpal.presentation.controller;
 
-import buckpal.business.dto.AccountCreateCommand;
+import buckpal.business.dto.CreateCommand;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Money;
 import buckpal.presentation.dto.AccountInfo;
@@ -21,7 +21,7 @@ class AccountCreateController {
 	CreateResponse createAccount(@RequestParam("initialBalance") Long initialBalance) {
 
 		try {
-			AccountCreateCommand command = new AccountCreateCommand(
+			CreateCommand command = new CreateCommand(
 					Money.of(initialBalance));
 
 			AccountId accountId = createAccountService.createAccount(command);

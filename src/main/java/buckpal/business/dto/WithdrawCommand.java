@@ -8,13 +8,13 @@ import static buckpal.common.validation.Validation.validate;
 
 import buckpal.common.validation.IPositiveMoney;
 
-public record AccountWithdrawCommand(
+public record WithdrawCommand(
 		@NotNull AccountId accountId,
 		@NotNull @IPositiveMoney Money money
 
 ) {
 
-	public AccountWithdrawCommand(AccountId accountId, Money money) {
+	public WithdrawCommand(AccountId accountId, Money money) {
 		this.accountId = accountId;
 		this.money = money;
 		validate(this);

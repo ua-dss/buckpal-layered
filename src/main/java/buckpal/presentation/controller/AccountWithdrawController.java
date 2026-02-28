@@ -1,7 +1,7 @@
 package buckpal.presentation.controller;
 
-import buckpal.business.dto.AccountWithdrawCommand;
-import buckpal.business.dto.AccountBalanceQuery;
+import buckpal.business.dto.WithdrawCommand;
+import buckpal.business.dto.BalanceQuery;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Money;
 import buckpal.presentation.dto.AccountInfo;
@@ -26,13 +26,13 @@ class AccountWithdrawController {
 			@RequestParam("amount") Long amount) {
 
 		try {
-			AccountWithdrawCommand command = new AccountWithdrawCommand(
+			WithdrawCommand command = new WithdrawCommand(
 					new AccountId(accountId),
 					Money.of(amount));
 
 			boolean success = accountWithdrawService.withdraw(command);
 
-			AccountBalanceQuery query = new AccountBalanceQuery(new AccountId(accountId));
+			BalanceQuery query = new BalanceQuery(new AccountId(accountId));
 
 			Long balance = accountBalanceService.getAccountBalance(query)
 					.getAmount()

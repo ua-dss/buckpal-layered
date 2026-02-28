@@ -2,7 +2,7 @@ package buckpal.presentation.controller;
 
 import buckpal.presentation.dto.AccountInfo;
 import buckpal.presentation.dto.BalanceResponse;
-import buckpal.business.dto.AccountBalanceQuery;
+import buckpal.business.dto.BalanceQuery;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.service.AccountBalanceService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ class AccountBalanceController {
 	BalanceResponse getAccountBalance(@RequestParam("accountId") Long accountId) {
 
 		try {
-			AccountBalanceQuery query = new AccountBalanceQuery(new AccountId(accountId));
+			BalanceQuery query = new BalanceQuery(new AccountId(accountId));
 
 			Long balance = accountBalanceService.getAccountBalance(query)
 					.getAmount()

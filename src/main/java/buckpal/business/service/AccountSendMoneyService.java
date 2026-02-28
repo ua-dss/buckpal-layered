@@ -1,7 +1,7 @@
 package buckpal.business.service;
 
 import buckpal.common.synchronization.IAccountLock;
-import buckpal.business.dto.AccountSendMoneyCommand;
+import buckpal.business.dto.SendMoneyCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
 import buckpal.data.repository.IAccountJpaRepository;
@@ -28,7 +28,7 @@ public class AccountSendMoneyService {
 	private final MoneyTransferProperties moneyTransferProperties;
 	private final AccountMapper accountMapper;
 
-	public boolean sendMoney(AccountSendMoneyCommand command) {
+	public boolean sendMoney(SendMoneyCommand command) {
 
 		checkThreshold(command);
 
@@ -81,7 +81,7 @@ public class AccountSendMoneyService {
 		return true;
 	}
 
-	private void checkThreshold(AccountSendMoneyCommand command) {
+	private void checkThreshold(SendMoneyCommand command) {
 		if (command.money().isGreaterThan(moneyTransferProperties.getMaximumTransferThreshold())) {
 			throw new ThresholdExceededException(moneyTransferProperties.getMaximumTransferThreshold(),
 					command.money());

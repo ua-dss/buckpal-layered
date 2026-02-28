@@ -73,7 +73,6 @@ class SendMoneySystemTest {
 		return accountMapper.mapToDomainEntity(jpaEntity, activities);
 	}
 
-
 	private ResponseEntity whenSendMoney(
 			AccountId sourceAccountId,
 			AccountId targetAccountId,

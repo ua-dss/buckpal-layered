@@ -1,7 +1,7 @@
 package buckpal.service;
 
 import buckpal.common.synchronization.IAccountLock;
-import buckpal.business.dto.AccountSendMoneyCommand;
+import buckpal.business.dto.SendMoneyCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
 import buckpal.data.repository.IAccountJpaRepository;
@@ -26,20 +26,16 @@ import static org.mockito.BDDMockito.*;
 
 class AccountSendMoneyServiceTest {
 
-	private final IAccountJpaRepository accountRepository =
-			Mockito.mock(IAccountJpaRepository.class);
+	private final IAccountJpaRepository accountRepository = Mockito.mock(IAccountJpaRepository.class);
 
-	private final IActivityJpaRepository activityRepository =
-			Mockito.mock(IActivityJpaRepository.class);
+	private final IActivityJpaRepository activityRepository = Mockito.mock(IActivityJpaRepository.class);
 
-	private final AccountMapper accountMapper =
-			Mockito.mock(AccountMapper.class);
+	private final AccountMapper accountMapper = Mockito.mock(AccountMapper.class);
 
-	private final IAccountLock accountLock =
-			Mockito.mock(IAccountLock.class);
+	private final IAccountLock accountLock = Mockito.mock(IAccountLock.class);
 
-	private final AccountSendMoneyService sendMoneyService =
-			new AccountSendMoneyService(accountRepository, activityRepository, accountLock, moneyTransferProperties(), accountMapper);
+	private final AccountSendMoneyService sendMoneyService = new AccountSendMoneyService(accountRepository,
+			activityRepository, accountLock, moneyTransferProperties(), accountMapper);
 
 	@Test
 	void givenWithdrawalFails_thenOnlySourceAccountIsLockedAndReleased() {
@@ -53,7 +49,7 @@ class AccountSendMoneyServiceTest {
 		givenWithdrawalWillFail(sourceAccount);
 		givenDepositWillSucceed(targetAccount);
 
-		AccountSendMoneyCommand command = new AccountSendMoneyCommand(
+		SendMoneyCommand command = new SendMoneyCommand(
 				sourceAccountId,
 				targetAccountId,
 				Money.of(300L));
@@ -78,7 +74,7 @@ class AccountSendMoneyServiceTest {
 
 		Money money = Money.of(500L);
 
-		AccountSendMoneyCommand command = new AccountSendMoneyCommand(
+		SendMoneyCommand command = new SendMoneyCommand(
 				sourceAccount.getId().get(),
 				targetAccount.getId().get(),
 				money);
@@ -126,7 +122,7 @@ class AccountSendMoneyServiceTest {
 		Account account = Mockito.mock(Account.class);
 		given(account.getId())
 				.willReturn(Optional.of(id));
-		
+
 		// Mock the JPA entity and mapper
 		AccountJpaEntity jpaEntity = Mockito.mock(AccountJpaEntity.class);
 		given(jpaEntity.getId()).willReturn(id.getValue());
@@ -137,11 +133,11 @@ class AccountSendMoneyServiceTest {
 		given(accountMapper.mapToDomainEntity(eq(jpaEntity), any()))
 				.willReturn(account);
 
-		buckpal.business.model.ActivityWindow activityWindow =
-				Mockito.mock(buckpal.business.model.ActivityWindow.class);
+		buckpal.business.model.ActivityWindow activityWindow = Mockito
+				.mock(buckpal.business.model.ActivityWindow.class);
 		given(activityWindow.getActivities()).willReturn(new ArrayList<>());
 		given(account.getActivityWindow()).willReturn(activityWindow);
-		
+
 		return account;
 	}
 

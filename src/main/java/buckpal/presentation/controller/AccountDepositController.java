@@ -1,7 +1,7 @@
 package buckpal.presentation.controller;
 
-import buckpal.business.dto.AccountDepositCommand;
-import buckpal.business.dto.AccountBalanceQuery;
+import buckpal.business.dto.DepositCommand;
+import buckpal.business.dto.BalanceQuery;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Money;
 import buckpal.presentation.dto.AccountInfo;
@@ -26,13 +26,13 @@ class AccountDepositController {
 			@RequestParam("amount") Long amount) {
 
 		try {
-			AccountDepositCommand command = new AccountDepositCommand(
+			DepositCommand command = new DepositCommand(
 					new AccountId(accountId),
 					Money.of(amount));
 
 			boolean success = accountDepositService.deposit(command);
 
-			AccountBalanceQuery query = new AccountBalanceQuery(new AccountId(accountId));
+			BalanceQuery query = new BalanceQuery(new AccountId(accountId));
 
 			Long balance = accountBalanceService.getAccountBalance(query)
 					.getAmount()

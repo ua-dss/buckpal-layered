@@ -5,10 +5,10 @@ import jakarta.validation.constraints.NotNull;
 
 import static buckpal.common.validation.Validation.validate;
 
-public record AccountBalanceQuery(
+public record BalanceQuery(
 		@NotNull AccountId accountId) {
 
-	public AccountBalanceQuery(AccountId accountId) {
+	public BalanceQuery(AccountId accountId) {
 		this.accountId = accountId;
 		validate(this);
 	}

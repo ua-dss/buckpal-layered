@@ -9,7 +9,7 @@ import buckpal.business.model.Activity.ActivityId;
 
 public class ActivityTestData {
 
-	public static ActivityBuilder defaultActivity(){
+	public static ActivityBuilder defaultActivity() {
 		return new ActivityBuilder()
 				.withOwnerAccount(new AccountId(42L))
 				.withSourceAccount(new AccountId(42L))

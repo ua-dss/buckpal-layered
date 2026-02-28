@@ -1,6 +1,6 @@
 package buckpal.business.service;
 
-import buckpal.business.dto.AccountWithdrawCommand;
+import buckpal.business.dto.WithdrawCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
 import buckpal.business.model.Activity;
@@ -23,7 +23,7 @@ public class AccountWithdrawService {
 	private final IActivityJpaRepository activityRepository;
 	private final AccountMapper accountMapper;
 
-	public boolean withdraw(AccountWithdrawCommand command) {
+	public boolean withdraw(WithdrawCommand command) {
 		// Load account using JpaRepository directly
 		var accountJpaEntity = accountRepository.findById(command.accountId().getValue())
 				.orElseThrow(() -> new EntityNotFoundException(

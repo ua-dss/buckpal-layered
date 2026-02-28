@@ -1,6 +1,6 @@
 package buckpal.business.service;
 
-import buckpal.business.dto.AccountBalanceQuery;
+import buckpal.business.dto.BalanceQuery;
 import buckpal.business.model.Money;
 import buckpal.data.repository.IAccountJpaRepository;
 import buckpal.data.repository.IActivityJpaRepository;
@@ -21,7 +21,7 @@ public class AccountBalanceService {
 	private final IActivityJpaRepository activityRepository;
 	private final AccountMapper accountMapper;
 
-	public Money getAccountBalance(AccountBalanceQuery query) {
+	public Money getAccountBalance(BalanceQuery query) {
 		// Load account using JpaRepository directly
 		var accountJpaEntity = accountRepository.findById(query.accountId().getValue())
 				.orElseThrow(() -> new EntityNotFoundException(

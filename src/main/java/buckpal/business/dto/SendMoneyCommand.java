@@ -8,12 +8,12 @@ import static buckpal.common.validation.Validation.validate;
 
 import buckpal.common.validation.IPositiveMoney;
 
-public record AccountSendMoneyCommand(
+public record SendMoneyCommand(
 		@NotNull AccountId sourceAccountId,
 		@NotNull AccountId targetAccountId,
 		@NotNull @IPositiveMoney Money money) {
 
-	public AccountSendMoneyCommand(
+	public SendMoneyCommand(
 			AccountId sourceAccountId,
 			AccountId targetAccountId,
 			Money money) {
