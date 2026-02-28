@@ -29,18 +29,9 @@ This repository implements a layered version of the [Buckpal](https://github.com
 
   
 
-The project follows a classic 3-layer structure:
+The project follows a classic 3-layer structure including **presentation**, **business**, and **data** layers.
 
-  
 
--  **presentation**: see controller package
-
--  **business**: see service and entity packages
-
--  **data**: see repository package
-
-  
-  
 
 ## Prerequisites
 
