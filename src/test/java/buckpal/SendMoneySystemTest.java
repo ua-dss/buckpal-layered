@@ -2,8 +2,8 @@ package buckpal;
 
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
-import buckpal.data.repository.AccountJpaRepository;
-import buckpal.data.repository.ActivityJpaRepository;
+import buckpal.data.repository.IAccountJpaRepository;
+import buckpal.data.repository.IActivityJpaRepository;
 import buckpal.business.repository.AccountMapper;
 import buckpal.business.model.Money;
 
@@ -27,10 +27,10 @@ class SendMoneySystemTest {
 	private TestRestTemplate restTemplate;
 
 	@Autowired
-	private AccountJpaRepository accountRepository;
+	private IAccountJpaRepository accountRepository;
 
 	@Autowired
-	private ActivityJpaRepository activityRepository;
+	private IActivityJpaRepository activityRepository;
 
 	@Autowired
 	private AccountMapper accountMapper;

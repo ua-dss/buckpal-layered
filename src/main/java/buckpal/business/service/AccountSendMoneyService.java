@@ -1,10 +1,10 @@
 package buckpal.business.service;
 
-import buckpal.common.synchronization.AccountLock;
+import buckpal.common.synchronization.IAccountLock;
 import buckpal.business.dto.AccountSendMoneyCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
-import buckpal.data.repository.AccountJpaRepository;
+import buckpal.data.repository.IAccountJpaRepository;
 import buckpal.data.entity.ActivityJpaEntity;
 import buckpal.business.repository.AccountMapper;
 import buckpal.business.exception.ThresholdExceededException;
@@ -22,9 +22,9 @@ import java.util.List;
 @Transactional
 public class AccountSendMoneyService {
 
-	private final AccountJpaRepository accountRepository;
-	private final buckpal.data.repository.ActivityJpaRepository activityRepository;
-	private final AccountLock accountLock;
+	private final IAccountJpaRepository accountRepository;
+	private final buckpal.data.repository.IActivityJpaRepository activityRepository;
+	private final IAccountLock accountLock;
 	private final MoneyTransferProperties moneyTransferProperties;
 	private final AccountMapper accountMapper;
 

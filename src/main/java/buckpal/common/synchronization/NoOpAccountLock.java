@@ -5,7 +5,7 @@ import buckpal.business.model.Account.AccountId;
 import org.springframework.stereotype.Component;
 
 @Component
-class NoOpAccountLock implements AccountLock {
+class NoOpAccountLock implements IAccountLock {
 
 	@Override
 	public void lockAccount(AccountId accountId) {

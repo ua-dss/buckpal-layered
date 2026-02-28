@@ -1,11 +1,11 @@
 package buckpal.service;
 
-import buckpal.common.synchronization.AccountLock;
+import buckpal.common.synchronization.IAccountLock;
 import buckpal.business.dto.AccountSendMoneyCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
-import buckpal.data.repository.AccountJpaRepository;
-import buckpal.data.repository.ActivityJpaRepository;
+import buckpal.data.repository.IAccountJpaRepository;
+import buckpal.data.repository.IActivityJpaRepository;
 import buckpal.business.repository.AccountMapper;
 import buckpal.data.entity.AccountJpaEntity;
 import buckpal.business.model.Money;
@@ -26,17 +26,17 @@ import static org.mockito.BDDMockito.*;
 
 class AccountSendMoneyServiceTest {
 
-	private final AccountJpaRepository accountRepository =
-			Mockito.mock(AccountJpaRepository.class);
+	private final IAccountJpaRepository accountRepository =
+			Mockito.mock(IAccountJpaRepository.class);
 
-	private final ActivityJpaRepository activityRepository =
-			Mockito.mock(ActivityJpaRepository.class);
+	private final IActivityJpaRepository activityRepository =
+			Mockito.mock(IActivityJpaRepository.class);
 
 	private final AccountMapper accountMapper =
 			Mockito.mock(AccountMapper.class);
 
-	private final AccountLock accountLock =
-			Mockito.mock(AccountLock.class);
+	private final IAccountLock accountLock =
+			Mockito.mock(IAccountLock.class);
 
 	private final AccountSendMoneyService sendMoneyService =
 			new AccountSendMoneyService(accountRepository, activityRepository, accountLock, moneyTransferProperties(), accountMapper);

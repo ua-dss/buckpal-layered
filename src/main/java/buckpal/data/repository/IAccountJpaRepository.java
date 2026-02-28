@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import buckpal.data.entity.AccountJpaEntity;
 
-public interface AccountJpaRepository extends JpaRepository<AccountJpaEntity, Long> {
+public interface IAccountJpaRepository extends JpaRepository<AccountJpaEntity, Long> {
 }

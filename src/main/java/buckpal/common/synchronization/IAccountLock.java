@@ -2,7 +2,7 @@ package buckpal.common.synchronization;
 
 import buckpal.business.model.Account.AccountId;
 
-public interface AccountLock {
+public interface IAccountLock {
 
 	void lockAccount(AccountId accountId);
 

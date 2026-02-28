@@ -6,12 +6,12 @@ import jakarta.validation.constraints.NotNull;
 
 import static buckpal.common.validation.Validation.validate;
 
-import buckpal.common.validation.PositiveMoney;
+import buckpal.common.validation.IPositiveMoney;
 
 public record AccountSendMoneyCommand(
 		@NotNull AccountId sourceAccountId,
 		@NotNull AccountId targetAccountId,
-		@NotNull @PositiveMoney Money money
+		@NotNull @IPositiveMoney Money money
 ) {
 
 	public AccountSendMoneyCommand(

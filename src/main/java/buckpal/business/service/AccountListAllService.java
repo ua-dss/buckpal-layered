@@ -1,8 +1,8 @@
 package buckpal.business.service;
 
 import buckpal.business.model.Account;
-import buckpal.data.repository.AccountJpaRepository;
-import buckpal.data.repository.ActivityJpaRepository;
+import buckpal.data.repository.IAccountJpaRepository;
+import buckpal.data.repository.IActivityJpaRepository;
 import buckpal.business.repository.AccountMapper;
 import buckpal.data.entity.ActivityJpaEntity;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 @Transactional
 public class AccountListAllService {
 
-	private final AccountJpaRepository accountRepository;
-	private final ActivityJpaRepository activityRepository;
+	private final IAccountJpaRepository accountRepository;
+	private final IActivityJpaRepository activityRepository;
 	private final AccountMapper accountMapper;
 
 	public List<Account> listAccounts() {

@@ -6,11 +6,11 @@ import jakarta.validation.constraints.NotNull;
 
 import static buckpal.common.validation.Validation.validate;
 
-import buckpal.common.validation.PositiveMoney;
+import buckpal.common.validation.IPositiveMoney;
 
 public record AccountWithdrawCommand(
 		@NotNull AccountId accountId,
-		@NotNull @PositiveMoney Money money
+		@NotNull @IPositiveMoney Money money
 
 ) {
 

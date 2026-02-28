@@ -5,10 +5,10 @@ import jakarta.validation.constraints.NotNull;
 import static buckpal.common.validation.Validation.validate;
 
 import buckpal.business.model.Money;
-import buckpal.common.validation.PositiveMoney;
+import buckpal.common.validation.IPositiveMoney;
 
 public record AccountCreateCommand(
-		@NotNull @PositiveMoney Money initialBalance
+		@NotNull @IPositiveMoney Money initialBalance
 ) {
 
 	public AccountCreateCommand(Money initialBalance) {

@@ -3,7 +3,7 @@ package buckpal.business.service;
 import buckpal.business.dto.AccountCreateCommand;
 import buckpal.business.model.Account;
 import buckpal.business.model.Account.AccountId;
-import buckpal.data.repository.AccountJpaRepository;
+import buckpal.data.repository.IAccountJpaRepository;
 import buckpal.data.entity.AccountJpaEntity;
 import buckpal.business.model.ActivityWindow;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class AccountCreateService {
 
-	private final AccountJpaRepository accountRepository;
+	private final IAccountJpaRepository accountRepository;
 
 	public AccountId createAccount(AccountCreateCommand command) {
 		Account newAccount = Account.withoutId(

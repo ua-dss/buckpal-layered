@@ -4,7 +4,7 @@ import buckpal.business.model.Money;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class PositiveMoneyValidator implements ConstraintValidator<PositiveMoney, Money> {
+public class PositiveMoneyValidator implements ConstraintValidator<IPositiveMoney, Money> {
 
 	@Override
 	public boolean isValid(Money value, ConstraintValidatorContext context) {

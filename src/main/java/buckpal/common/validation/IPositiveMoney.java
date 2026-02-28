@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Constraint(validatedBy = PositiveMoneyValidator.class)
 @Documented
-public @interface PositiveMoney {
+public @interface IPositiveMoney {
 
 	String message() default "must be positive" +
 			" found: ${validatedValue}";
